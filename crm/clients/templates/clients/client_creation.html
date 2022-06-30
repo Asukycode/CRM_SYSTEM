@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+
+{% block content %}
+    <a href="{%url 'clients:client-list'%}">Back to client list</a>
+    <hr>
+    <h2><p>Client Form</p></h2>
+
+        <form method="POST" action=".">
+            {%csrf_token%}
+            {{form.as_p}}
+
+            <button class="submit">Submit</button>
+        </form>
+{% endblock content%}

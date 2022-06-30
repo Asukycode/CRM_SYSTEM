@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CRM</title>
+<!--    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">-->
+    <link rel="stylesheet" href="{% static 'styles/tailwind.css'%}">
+</head>
+<style>
+    .client{
+        padding: 10px 6px;
+        margin-top:10px;
+        background-color: #f6f6f6;
+        width: 100%;
+
+    }
+     a{
+        text-decoration:none;
+    }
+
+</style>
+<body>
+
+
+{% include 'navbar.html'%}
+<div class="max-w-7xl mx-auto">
+    {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+    {% block content %}
+
+    {% endblock content %}
+</div>
+</body>
+</html>
